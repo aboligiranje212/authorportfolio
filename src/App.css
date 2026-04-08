@@ -1,0 +1,53 @@
+/* 1. FONT IMPORTS - Sci-Fi / Space Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;600&display=swap');
+
+/* 2. COSMIC DESIGN TOKENS */
+:root {
+  --bg-dark: #000000;       /* Pure Void */
+  --bg-secondary: #0a0a0a;  /* Deep Space */
+  --accent: #ff0f0f;        /* Red Giant Star (Warning/Danger color) */
+  --accent-glow: rgba(255, 15, 15, 0.4);
+  --text-primary: #e0e0e0;  /* Spaceship Hull White */
+  --text-muted: #666;       /* Faded Text */
+  --border-tech: #333;      /* Subtle grid lines */
+}
+
+/* 3. BASE RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Rajdhani', sans-serif; /* High-tech readable font */
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 50% 50%, #111 0%, #000 100%); /* Subtle Vignette */
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif; /* The futuristic header font */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 4. UTILITIES */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Custom Scrollbar (Red & Black) */
+::-webkit-scrollbar {
+   width: 8px; 
+  }
+::-webkit-scrollbar-track {
+   background: var(--bg-dark); 
+  }
+::-webkit-scrollbar-thumb { 
+  background: var(--accent);
+ }

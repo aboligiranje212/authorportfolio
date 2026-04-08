@@ -1,0 +1,146 @@
+/* ================== NAVBAR ================== */
+.navbar {
+  background: rgba(0, 0, 0, 0.9);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid #333;
+  backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* ================== LOGO ================== */
+.logo {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo-accent {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent);
+}
+
+/* ================== LINKS ================== */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.3s;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+
+.nav-links:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent);
+}
+
+/* ================== BUTTON ================== */
+.btn-nav {
+  border: 1px solid var(--accent);
+  padding: 8px 20px;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.btn-nav:hover {
+  background: var(--accent);
+  color: black;
+  box-shadow: 0 0 15px var(--accent);
+}
+
+/* ================== HAMBURGER ICON ================== */
+.menu-icon {
+  display: none; /* Hidden on desktop */
+  color: white;
+}
+
+/* ================== MOBILE RESPONSIVENESS ================== */
+@media screen and (max-width: 960px) {
+
+  /* 1. CONTAINER: Keeps everything contained */
+  .navbar-container {
+    position: relative; 
+    /* The Flexbox settings from desktop (justify-content: space-between) 
+       will naturally push Logo to Left and Icon to Right. */
+  }
+
+  /* 2. LOGO: Make it smaller so it fits */
+  .logo {
+    font-size: 1.4rem; /* Slightly smaller to prevent crowding */
+    z-index: 10;
+  }
+
+  /* 3. MENU ICON: THE FIX */
+  .menu-icon {
+    display: block;       /* Make it visible */
+    font-size: 1.8rem;    /* Size of the bars */
+    cursor: pointer;
+    color: white;
+    
+    /* REMOVED: position: absolute, top, right, transform */
+    /* Flexbox handles the positioning now! */
+  }
+
+  /* 4. THE SLIDING MENU */
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;        /* Cover the screen */
+    position: absolute;  /* Pull it out of the flow so it doesn't break the header */
+    top: 80px;           /* Push it below the header */
+    left: -100%;         /* Hide it to the left */
+    opacity: 1;
+    transition: all 0.5s ease;
+    background: #000;
+  }
+
+  /* 5. ACTIVE STATE (Slide In) */
+  .nav-menu.active {
+    left: 0;             /* Bring it back */
+    background: #050505;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  /* 6. LINKS & BUTTONS */
+  .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .btn-nav {
+    display: block;
+    width: 80%;
+    margin: 2rem auto;
+    text-align: center;
+  }
+}

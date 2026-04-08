@@ -1,0 +1,155 @@
+.books-section {
+  padding: 100px 10%;
+  background: var(--bg-dark);
+  scroll-margin-top: 80px; /* Fixes scrolling issue */
+}
+
+.section-header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  color: var(--text-primary);
+  font-family: 'Orbitron', sans-serif; /* Sci-Fi Font */
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.book-item {
+  position: relative;
+  transition: transform 0.3s ease;
+  background: #000; /* Dark Card Background */
+  border: 1px solid #222;
+  padding-bottom: 20px;
+}
+
+.book-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 59, 59, 0.1); /* Red Glow */
+  border-color: var(--accent);
+}
+
+.book-poster {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.book-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* The Dark Overlay */
+.book-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.book-item:hover .book-overlay { opacity: 1; }
+.book-item:hover .book-poster img { transform: scale(1.1); }
+
+/* The Main Button */
+.buy-btn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 12px 30px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.buy-btn:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 15px var(--accent);
+}
+
+.book-info {
+  margin-top: 20px;
+  padding: 0 15px;
+  text-align: left;
+}
+
+.book-tag {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.book-info h3 {
+  margin: 5px 0;
+  font-size: 1.5rem;
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.book-author {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.book-price {
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* ================== MOBILE RESPONSIVENESS ================== */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Reduce the massive section padding */
+  .books-section {
+    padding: 60px 20px; 
+  }
+
+  /* 2. Make the big heading smaller so it fits */
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+
+  /* 3. Reduce gap between books */
+  .books-grid {
+    gap: 20px;
+    justify-content: center; /* Ensures books stay centered */
+  }
+
+  /* 4. Make book covers slightly shorter on mobile */
+  .book-poster {
+    height: 350px;
+  }
+}

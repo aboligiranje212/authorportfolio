@@ -1,0 +1,142 @@
+.bio-section {
+  padding: 120px 10%;
+  background-color: #151515; /* Slightly lighter than the main black for contrast */
+  color: var(--text-primary);
+  overflow: hidden; /* Keeps decoration inside */
+}
+
+.bio-container {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* 1. The Image Side */
+.bio-image {
+  flex: 1;
+  position: relative;
+}
+
+.bio-image img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  filter: grayscale(100%); /* Makes it moody/black & white */
+  position: relative;
+  z-index: 2; /* Sits on top of the accent box */
+  transition: 0.5s ease;
+}
+
+.bio-image:hover img {
+  filter: grayscale(0%); /* Color returns on hover - cool effect! */
+}
+
+/* The "Artistic" Box behind the image */
+.image-accent-box {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent); /* That Earthy Terracotta color */
+  z-index: 1;
+}
+
+/* 2. The Text Side */
+.bio-content {
+  flex: 1;
+}
+
+.bio-subtitle {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.bio-content h2 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+.highlight-text {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.bio-text {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* 3. The Stats Row */
+.bio-stats {
+  display: flex;
+  gap: 50px;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  padding-top: 30px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
+
+.stat-label {
+  color: var(--accent);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ================== MOBILE RESPONSIVENESS ================== */
+@media screen and (max-width: 960px) {
+  
+  /* 1. Reduce the massive padding */
+  .bio-section {
+    padding: 60px 20px;
+  }
+
+  /* 2. Stack the layout (Image Top, Text Bottom) */
+  .bio-container {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center; /* Centers the text for mobile */
+  }
+
+  /* 3. Adjust Image Size */
+  .bio-image img {
+    max-height: 400px; /* Don't take up the whole phone screen */
+    width: 100%; /* Ensure it fits width-wise */
+  }
+
+  /* 4. Fix the "Artistic Box" position for the new layout */
+  .image-accent-box {
+    top: 15px; /* Adjust offset so it doesn't look weird centered */
+    left: 15px;
+  }
+
+  /* 5. Shrink the Giant Heading */
+  .bio-content h2 {
+    font-size: 2.5rem; /* Down from 3.5rem */
+  }
+
+  /* 6. Center the Stats Row */
+  .stats-row {
+    justify-content: center;
+    gap: 30px;
+  }
+}
